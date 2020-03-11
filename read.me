@@ -1,0 +1,96 @@
+       [ Face Expression API]
+
+Postman URL :   http://127.0.0.1:4555/face_expression_api
+
+
+please install all the requirements packages and then run this API. 
+follow the below statements step by step:
+
+1. activate your virtualenv by below command:
+   $ -source venv/bin/activate
+
+
+2. cd to the directory where requirements.txt is located.
+
+
+3. run: pip install -r requirements.txt   
+		or  
+	pip install --user --requirement requirements.txt
+
+
+4. run: cd app/python app.py
+
+
+5. http://127.0.0.1:4555/face_expression_api run this url in your favourite browser(Chrome/Postman).
+
+
+
+
+API Request:
+
+{
+    'file' : 'video.mp4'               // Supported formats .avi, .mp4
+    'finmomenta_transaction_id' : ""
+}
+
+
+Response:
+
+*Success Response:
+
+{
+    'code' : 4001,
+    'status' : 'success'
+    'description' : 'Your face expressions is captured.'
+    'client_transaction_id' : '',
+    'finmomenta_transaction_id' : '',
+    'expression_response' : [{expressions by timing}]
+}
+   
+
+*Failure Response:
+
+{
+    'code' : 4011,
+    'status' : 'failure'
+    'description' : 'Not able to proceed, due to poor video quality. try again.'
+    'client_transaction_id' : '',
+    'finmomenta_transaction_id' : ''
+    'expression_response' : []
+}
+
+
+{
+    'code' : 4012,
+    'status' : 'failure'
+    'description' : 'Invalid Request. Please upload one video file.'
+    'client_transaction_id' : '',
+    'finmomenta_transaction_id' : ''
+    'expression_response' : []
+}
+
+
+{
+    'code' : 4013,
+    'status' : 'failure'
+    'description' : 'Invalid file format. Only .avi and .mp4 formats are allowed.'
+    'client_transaction_id' : '',
+    'finmomenta_transaction_id' : ''   
+    'expression_response' : []
+}
+
+
+{
+    'code' : 4014,
+    'status' : 'failure'
+    'description' : 'More than 20-second video is not acceptable.'
+    'client_transaction_id' : '',
+    'finmomenta_transaction_id' : ''
+    'expression_response' : []
+}
+
+
+
+
+
+
